@@ -67,7 +67,7 @@ ${contextParts.join('\n')}
 Write a response to the incoming patient message that sounds natural and matches this provider's voice. Do not include any preamble or explanation—just write the response as it would appear in the portal message.`;
 
     const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-20250514',
+      model: 'claude-sonnet-4-5',
       max_tokens: 1024,
       system: systemPrompt,
       messages: [
