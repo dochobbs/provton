@@ -19,9 +19,11 @@ export default function DocumentationStep5() {
   };
 
   const generateDraft = async (scenarioId: string, scenarioIndex: number) => {
+    console.log('Starting generation for:', scenarioId);
     setIsGenerating((prev) => ({ ...prev, [scenarioId]: true }));
 
     try {
+      console.log('Sending request to /api/generate-drafts');
       const response = await fetch('/api/generate-drafts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -35,9 +37,11 @@ export default function DocumentationStep5() {
         }),
       });
 
+      console.log('Response status:', response.status);
       if (!response.ok) throw new Error('Failed to generate draft');
 
       const data = await response.json();
+      console.log('Got draft data:', data);
       const key = scenarioId as 'scenario5A' | 'scenario5B' | 'scenario5C';
       setEditCapture({
         [key]: {
