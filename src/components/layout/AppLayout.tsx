@@ -21,7 +21,6 @@ export function AppLayout({ children }: AppLayoutProps) {
               <span className="text-xl font-light text-[var(--mid-blue)]">
                 Provider<span className="font-normal">Tone</span>
               </span>
-              <p className="text-xs text-[var(--gray)]">by Elation Health</p>
             </div>
           </div>
         </div>
