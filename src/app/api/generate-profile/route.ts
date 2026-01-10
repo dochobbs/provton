@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 
-const anthropic = new Anthropic();
+const anthropic = new Anthropic({
+  apiKey: process.env.AI_INTEGRATIONS_ANTHROPIC_API_KEY,
+  baseURL: process.env.AI_INTEGRATIONS_ANTHROPIC_BASE_URL,
+});
 
 const analysisPrompt = `You are analyzing a medical provider's communication style based on their responses to a structured interrogation. Your goal is to produce an accurate, nuanced style profile that will be used to generate portal message drafts in their voice.
 
