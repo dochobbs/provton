@@ -1,0 +1,59 @@
+You are analyzing portal messages from a healthcare provider to extract their unique communication style.
+
+CONTEXT:
+- These are real messages sent to patients through an EHR patient portal
+- Your analysis will be used to generate AI drafts that match this provider's voice
+- Focus on patterns, not clinical content
+
+MESSAGES TO ANALYZE:
+{messages}
+
+Extract and return as JSON:
+
+{
+  "surface_patterns": {
+    "greetings": ["list of greeting phrases used"],
+    "closings": ["list of sign-off phrases used"],
+    "length_tendency": "short|medium|long",
+    "typical_paragraph_count": 2,
+    "uses_bullet_points": false,
+    "punctuation_notes": "description of punctuation habits"
+  },
+  "tone_dimensions": {
+    "warmth": {
+      "score": 7,
+      "evidence": "quote or description supporting score"
+    },
+    "directiveness": {
+      "score": 5,
+      "evidence": "quote or description"
+    },
+    "formality": {
+      "score": 4,
+      "evidence": "quote or description"
+    },
+    "certainty": {
+      "score": 6,
+      "evidence": "quote or description"
+    },
+    "thoroughness": {
+      "score": 7,
+      "evidence": "quote or description"
+    }
+  },
+  "distinctive_phrases": {
+    "frequent": ["phrases used multiple times"],
+    "signature": ["unique phrases that characterize this provider"],
+    "avoided": ["phrases conspicuously absent that others might use"]
+  },
+  "behavioral_patterns": {
+    "acknowledges_emotions": true,
+    "provides_education": true,
+    "sets_clear_expectations": true,
+    "uses_patient_name": true,
+    "asks_follow_up_questions": false
+  }
+}
+
+Be specific. Quote exact phrases. Base all scores on evidence from the messages.
+Return ONLY valid JSON, no additional text.

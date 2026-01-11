@@ -1,0 +1,78 @@
+You are analyzing clinical notes from a healthcare provider to extract their documentation style.
+
+CONTEXT:
+- These are real clinical notes from an EHR
+- Your analysis will be used to generate AI drafts that match this provider's documentation voice
+- Focus on structure, phrasing patterns, and style choices
+
+NOTES TO ANALYZE:
+{notes}
+
+Extract and return as JSON:
+
+{
+  "structural_patterns": {
+    "overall_organization": "SOAP|problem-oriented|narrative|other",
+    "hpi_style": {
+      "format": "narrative|bullet|templated|mixed",
+      "typical_length": "brief|moderate|comprehensive",
+      "includes_pertinent_negatives": true,
+      "includes_context": true
+    },
+    "assessment_style": {
+      "format": "diagnosis_only|with_rationale|differential_focused",
+      "certainty_language": "description of how certainty is expressed",
+      "typical_length": "brief|moderate|detailed"
+    },
+    "plan_style": {
+      "organization": "numbered|categorized|free_text",
+      "specificity": "general|moderate|highly_specific",
+      "includes_contingencies": true
+    },
+    "physical_exam_style": {
+      "format": "comprehensive|focused|pertinent_only",
+      "documentation_of_normals": "full|selective|minimal"
+    }
+  },
+  "voice_dimensions": {
+    "verbosity": {
+      "score": 6,
+      "evidence": "description"
+    },
+    "reasoning_visibility": {
+      "score": 7,
+      "evidence": "how much clinical thinking is documented"
+    },
+    "formality": {
+      "score": 8,
+      "evidence": "description"
+    },
+    "certainty_expression": {
+      "score": 6,
+      "evidence": "description"
+    },
+    "patient_centeredness": {
+      "score": 5,
+      "evidence": "use of patient quotes, patient perspective"
+    },
+    "defensiveness": {
+      "score": 4,
+      "evidence": "medicolegal language, documentation of discussions"
+    }
+  },
+  "standard_phrasings": {
+    "hpi_openings": ["exact phrases used to start HPIs"],
+    "transition_phrases": ["phrases used between sections"],
+    "assessment_language": ["phrases for expressing diagnoses"],
+    "plan_language": ["phrases for expressing plans"],
+    "safety_net_phrases": ["return precaution language"]
+  },
+  "distinctive_patterns": {
+    "signature_moves": ["unique documentation habits"],
+    "consistent_inclusions": ["elements always included"],
+    "avoided_patterns": ["things this provider doesn't do"]
+  }
+}
+
+Be specific. Quote exact phrases. Base all observations on evidence from the notes.
+Return ONLY valid JSON, no additional text.

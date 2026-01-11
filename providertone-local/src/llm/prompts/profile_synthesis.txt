@@ -1,0 +1,53 @@
+You are synthesizing a provider style profile from multiple analysis batches.
+
+CONTEXT:
+- You have analyzed different categories of messages/notes separately
+- Now you need to combine these into a unified profile
+- Resolve any conflicts by looking for the most consistent patterns
+
+BATCH ANALYSES:
+{analyses}
+
+Create a unified profile with:
+
+1. SURFACE PATTERNS - The most consistent greeting/closing patterns across all batches
+2. TONE DIMENSIONS - Average the scores, but note if there's significant variation by context
+3. NEGATIVE CONSTRAINTS - Combine all avoided phrases/patterns
+4. SIGNATURE MOVES - The most distinctive and consistent patterns
+5. VOICE SUMMARY - A 3-4 sentence prose description of this provider's voice
+
+Return as JSON matching this exact schema:
+
+{
+  "surfacePatterns": {
+    "greetings": "description with examples",
+    "closings": "description with examples",
+    "lengthTendency": "short|medium|long with context",
+    "paragraphStructure": "description",
+    "punctuationPatterns": "description"
+  },
+  "toneDimensions": {
+    "warmth": {"score": 7, "description": "behavioral description"},
+    "certainty": {"score": 6, "description": "behavioral description"},
+    "directiveness": {"score": 5, "description": "behavioral description"},
+    "formality": {"score": 4, "description": "behavioral description"},
+    "thoroughness": {"score": 7, "description": "behavioral description"}
+  },
+  "negativeConstraints": {
+    "neverUsePhrases": ["phrase1", "phrase2"],
+    "neverUsePatterns": ["pattern1", "pattern2"],
+    "avoid": ["thing1", "thing2"]
+  },
+  "judgmentPatterns": {
+    "uncertaintyHandling": "description",
+    "escalationStyle": "description",
+    "decliningRequests": "description",
+    "emotionalResponsiveness": "description",
+    "afterHoursApproach": "description"
+  },
+  "signatureMoves": ["move1", "move2", "move3"],
+  "voiceSummary": "3-4 sentence prose summary",
+  "exampleFragments": ["phrase1", "phrase2", "phrase3"]
+}
+
+Return ONLY valid JSON.
